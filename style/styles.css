@@ -1,0 +1,65 @@
+.contenedor_formulario{
+    max-width: 800px;
+    margin: 40px auto;
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    background-color: #fff;
+}
+
+h1{
+    text-align: center;
+}
+
+.mi-formulario-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+.mi-formulario-grupo{
+    display: flex;
+    flex-direction: column;
+}
+.mi-formulario-grupo label{
+    margin-bottom: 5px;
+}
+
+.mi-formulario-box{
+    margin-bottom: 30px;
+}
+input,select,textarea{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;  
+}
+.checkbox-grupo{
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+.checkbox-grupo label{
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-guardar{
+    display: block;
+    width: 300px;
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #1aab8a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
