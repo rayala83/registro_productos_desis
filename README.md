@@ -19,7 +19,7 @@ Ideal para mantener el entorno limpio y evitar configurar bases de datos manualm
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/tu-usuario/nombre-repo.git](https://github.com/tu-usuario/nombre-repo.git)
+    git clone [https://github.com/rayala83/registro_productos_desis.git)
     cd nombre-repo
     ```
 2.  **Instalar Docker:** Si no lo tienes, descárgalo en [docker.com](https://www.docker.com/).
@@ -50,4 +50,5 @@ El formulario cuenta con validaciones estrictas mediante JavaScript antes del en
 * **Bodegas y Sucursales:** Carga dinámica de datos. La sucursal se habilita solo al seleccionar una bodega.
 * **Materiales:** Obligatorio seleccionar al menos 2 opciones.
 * **Descripción:** Entre 10 y 1000 caracteres.
+
 
