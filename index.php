@@ -15,15 +15,15 @@ include 'obtener_datos_iniciales.php';
     
     <div class="contenedor_formulario">
         <h1>Fomulario de Producto</h1>
-        <form id="formulario_productos" name="formulario_productos" action="ingreso_productos.php" method="POST">
+        <form id="formulario_productos">
             <div class="mi-formulario-row">
                 <div class="mi-formulario-grupo">
                     <label for="codigo_producto">Codigo</label>
                     <input type="text" id="codigo_producto" name="codigo">
                 </div>
                 <div class="mi-formulario-grupo">
-                    <label for="nombre_producto">Nombre</label>
-                    <input type="text" id="nombre_producto" placeholder="Ingresar el nombre completo del producto." />
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre_producto" name="nombre" placeholder="Ingresar el nombre completo del producto." />
                 </div>
             </div>
             <div class="mi-formulario-row">
@@ -54,23 +54,23 @@ include 'obtener_datos_iniciales.php';
                     </select>
                 </div>
                 <div class="mi-formulario-grupo">
-                    <label for="precio_producto">Precio</label>
-                    <input type="text" id="precio_producto" >
+                    <label for="precio">Precio</label>
+                    <input type="text" id="precio" >
                 </div>
             </div>     
             <div class="mi-formulario-box">
                 <label>Materiales del Producto</label>
                 <div class="checkbox-grupo">
-                    <label><input name="material[]" type="checkbox">Plástico</label>
-                    <label><input name="material[]" type="checkbox">Metal</label>
-                    <label><input name="material[]" type="checkbox">Madera</label>
-                    <label><input name="material[]" type="checkbox">Vidrio</label>
-                    <label><input name="material[]" type="checkbox">Textil</label>
+                    <label><input name="material[]" type="checkbox" value="Plástico" >Plástico</label>
+                    <label><input name="material[]" type="checkbox" value="Metal" >Metal</label>
+                    <label><input name="material[]" type="checkbox" value="Madera" >Madera</label>
+                    <label><input name="material[]" type="checkbox" value="PlástVidrioico" >Vidrio</label>
+                    <label><input name="material[]" type="checkbox" value="Textil" >Textil</label>
                 </div>
             </div>
             <div class="mi-formulario-descripcion">
                 <label>Descripcion</label>
-                <textarea name="descripcion_producto" id="descripcion_producto"></textarea>
+                <textarea name="descripcion" id="descripcion_producto"></textarea>
             </div>
             <button type="submit" class="btn-guardar">Guardar Producto</button>
 

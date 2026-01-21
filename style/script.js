@@ -62,7 +62,7 @@ document.getElementById('formulario_productos').addEventListener('submit', async
 
 
     //VALIDACIÓN: PRECIO
-    const precio = document.getElementById('precio_producto').value.trim();
+    const precio = document.getElementById('precio').value.trim();
     const regexPrecio = /^[0-9]+(\.[0-9]{1,2})?$/;
     if (precio === "" || !regexPrecio.test(precio) || parseFloat(precio) <= 0) {
         alert("El precio debe ser un número positivo con hasta 2 decimales.");
@@ -90,9 +90,30 @@ document.getElementById('formulario_productos').addEventListener('submit', async
         return;
     }
 
+    console.log("Enviando datos al servidor...");
 
-    alert("Código válido. Procediendo al registro...");
-    this.submit();
+    const formData = new FormData(this);
+
+    try {
+        const respuestaFinal = await fetch('guardar_productos.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        const resultado = await respuestaFinal.json();
+
+        if (resultado.status === "success") {
+            alert("¡Éxito!: " + resultado.message);
+            this.reset(); 
+            document.getElementById('select_sucursal').disabled = true;
+        } else {
+            alert("Error al guardar: " + resultado.message);
+        }
+
+    } catch (error) {
+        console.error("Error en el envío:", error);
+        alert("Hubo un error crítico al conectar con el servidor.");
+    }
 })
 document.getElementById('select_bodega').addEventListener('change', function() {
     const bodegaId = this.value;
