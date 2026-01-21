@@ -1,13 +1,6 @@
 <?php
 include 'conexion.php';
-
-try {
-    $stmt = $pdo->query("SELECT id, nombre FROM bodegas ORDER BY nombre");
-    $bodegas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    $bodegas = [];
-}
-
+include 'obtener_datos_iniciales.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +18,12 @@ try {
         <form id="formulario_productos" name="formulario_productos" action="ingreso_productos.php" method="POST">
             <div class="mi-formulario-row">
                 <div class="mi-formulario-grupo">
-                    <label for="codigo">Codigo</label>
+                    <label for="codigo_producto">Codigo</label>
                     <input type="text" id="codigo_producto" name="codigo">
                 </div>
                 <div class="mi-formulario-grupo">
-                    <label for="codigo">Nombre</label>
-                    <input type="text" id="nombre_producto" >
+                    <label for="nombre_producto">Nombre</label>
+                    <input type="text" id="nombre_producto" placeholder="Ingresar el nombre completo del producto." />
                 </div>
             </div>
             <div class="mi-formulario-row">
@@ -45,7 +38,7 @@ try {
                 </div>
                 <div class="mi-formulario-grupo">
                     <label for="select_sucursal">Sucursal</label>
-                    <select name="bodega" id="select_bodega">
+                    <select name="sucursal" id="select_sucursal">
                         <option value="0"> </option>
                     </select>
                 </div>
@@ -55,21 +48,24 @@ try {
                     <label for="select_moneda">Moneda</label>
                     <select name="moneda" id="select_moneda">
                         <option value="0"> </option>
+                        <?php foreach ($monedas as $m): ?>
+                            <option value="<?= $m['id'] ?>"><?= $m['nombre'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="mi-formulario-grupo">
-                    <label for="codigo">Precio</label>
+                    <label for="precio_producto">Precio</label>
                     <input type="text" id="precio_producto" >
                 </div>
             </div>     
             <div class="mi-formulario-box">
                 <label>Materiales del Producto</label>
                 <div class="checkbox-grupo">
-                    <label><input type="checkbox">Plástico</label>
-                    <label><input type="checkbox">Metal</label>
-                    <label><input type="checkbox">Madera</label>
-                    <label><input type="checkbox">Vidrio</label>
-                    <label><input type="checkbox">Textil</label>
+                    <label><input name="material[]" type="checkbox">Plástico</label>
+                    <label><input name="material[]" type="checkbox">Metal</label>
+                    <label><input name="material[]" type="checkbox">Madera</label>
+                    <label><input name="material[]" type="checkbox">Vidrio</label>
+                    <label><input name="material[]" type="checkbox">Textil</label>
                 </div>
             </div>
             <div class="mi-formulario-descripcion">
